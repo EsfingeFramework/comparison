@@ -1,4 +1,4 @@
-package org.esfinge.comparison.reader;
+/*package org.esfinge.comparison.reader;
 
 import java.io.File;
 
@@ -25,4 +25,4 @@ public class XMLComparisonMetadataReader implements ComparisonMetadataReader{
 	}
 	
 
-}
+}*/

@@ -1,14 +1,14 @@
 package org.esfinge.comparison.integration;
 
-import static net.sf.classmock.ClassMockUtils.set;
+import static net.sf.esfinge.classmock.ClassMockUtils.set;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
 import javax.persistence.Entity;
 
-import net.sf.classmock.ClassMock;
-import net.sf.classmock.Location;
+import net.sf.esfinge.classmock.ClassMock;
+import net.sf.esfinge.classmock.Location;
 
 import org.esfinge.comparison.ComparisonComponent;
 import org.esfinge.comparison.annotation.DeepComparison;

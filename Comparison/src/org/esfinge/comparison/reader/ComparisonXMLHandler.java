@@ -1,4 +1,4 @@
-package org.esfinge.comparison.reader;
+/*package org.esfinge.comparison.reader;
 
 import org.esfinge.comparison.ComparisonDescriptor;
 import org.esfinge.comparison.PropertyDescriptor;
@@ -35,4 +35,4 @@ public class ComparisonXMLHandler {
 	public void setDescriptor(ComparisonDescriptor d){
 		descriptor = d;
 	}
-}
+}*/

@@ -120,10 +120,10 @@ public class ListComparisonTest {
 		List<Difference> l = cc.compare(b1, b2);
 		
 		assertEquals(2, l.size());
-		assertEquals("compList", l.get(0).getPath());
+		assertEquals("compList[id=4]", l.get(0).getPath());
 		assertEquals(ListChange.ADDED, ((ListChanceDifference)l.get(0)).getChangeType());
 		assertEquals(new_ib2, ((ListChanceDifference)l.get(0)).getItem());
-		assertEquals("compList", l.get(1).getPath());
+		assertEquals("compList[id=2]", l.get(1).getPath());
 		assertEquals(ListChange.REMOVED, ((ListChanceDifference)l.get(1)).getChangeType());
 		assertEquals(old_ib2, ((ListChanceDifference)l.get(1)).getItem());
 	}

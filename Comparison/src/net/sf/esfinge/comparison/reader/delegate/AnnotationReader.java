@@ -1,0 +1,13 @@
+package net.sf.esfinge.comparison.reader.delegate;
+
+import java.lang.annotation.Annotation;
+
+import net.sf.esfinge.comparison.PropertyDescriptor;
+
+
+public interface AnnotationReader<A extends Annotation> {
+	
+	public void readAnnotation(A annotation,
+			PropertyDescriptor descriptor);
+
+}

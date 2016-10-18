@@ -45,6 +45,8 @@ public class ComparisonComponent {
 		if (!newObj.getClass().isAssignableFrom(oldObj.getClass()))
 			throw new CompareException("Not compatible types");
 		
+		
+		//Modifico Aqui
 		ComparisonDescriptor descr = Repository.getInstance().
 			getMetadata(newObj.getClass());
 
@@ -61,7 +63,11 @@ public class ComparisonComponent {
 			try {
 				Object oldValue = BeanUtils.getProperty(oldObj, prop);
 				Object newValue = BeanUtils.getProperty(newObj, prop);
+				
+				//Modifico Aqui
 				PropertyDescriptor descProp = descr.getPropertyDescriptor(prop);
+				
+				
 				compareUsingLayers(difs, oldValue, newValue, descProp);
 			} catch (Exception e) {
 				throw new CompareException("Error retrieving property", e);

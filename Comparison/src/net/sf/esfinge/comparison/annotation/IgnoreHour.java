@@ -10,6 +10,7 @@ import net.sf.esfinge.comparison.reader.delegate.DelegateReader;
 
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-@DelegateReader(IgnoreHourReader.class)public @interface IgnoreHour {
+@DelegateReader(IgnoreHourReader.class)
+public @interface IgnoreHour {
 
 }

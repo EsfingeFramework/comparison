@@ -6,6 +6,8 @@ import java.util.Set;
 
 public class ComparisonDescriptor {
 	
+	
+	
 	private Map<String,PropertyDescriptor> properties =
 		new HashMap<String, PropertyDescriptor>();
 	

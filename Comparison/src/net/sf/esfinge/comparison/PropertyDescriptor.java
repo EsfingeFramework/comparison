@@ -2,13 +2,20 @@ package net.sf.esfinge.comparison;
 
 import net.sf.esfinge.comparison.processor.ComparisonProcessor;
 import net.sf.esfinge.comparison.processor.RegularProcessor;
+import net.sf.esfinge.metadata.annotation.container.ElementName;
+import net.sf.esfinge.metadata.annotation.container.ReflectionReference;
 
 public class PropertyDescriptor {
 	
+	@ElementName
 	private String name;
+	
 	private ComparisonProcessor processor;
+	
 	private boolean deepComparison;
+	
 	private boolean collectionComparison;
+	@ReflectionReference
 	private Class associateType;
 	
 	public ComparisonProcessor getProcessor() {

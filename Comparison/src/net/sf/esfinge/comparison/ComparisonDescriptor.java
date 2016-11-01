@@ -1,6 +1,7 @@
 package net.sf.esfinge.comparison;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -8,6 +9,7 @@ import java.util.Set;
 import net.sf.esfinge.metadata.annotation.container.ContainerFor;
 import net.sf.esfinge.metadata.annotation.container.ElementName;
 import net.sf.esfinge.metadata.annotation.container.ProcessFields;
+import net.sf.esfinge.metadata.annotation.container.ProcessMethods;
 import net.sf.esfinge.metadata.container.ContainerTarget;
 
 @ContainerFor(ContainerTarget.TYPE)
@@ -17,8 +19,8 @@ public class ComparisonDescriptor {
 	
 	private Map<String,PropertyDescriptor> properties = new HashMap<String, PropertyDescriptor>();
 	
-	@ProcessFields
-	private Map<Field,PropertyDescriptor> propertiesNew;
+	@ProcessMethods
+	private Map<Method,PropertyDescriptor> propertiesNew;
 	
 	@ElementName
 	private String idProp;
@@ -58,10 +60,10 @@ public class ComparisonDescriptor {
 		this.idProp = idProp;
 	}
 	
-	public Map<Field, PropertyDescriptor> getPropertiesNew() {
+	public Map<Method, PropertyDescriptor> getPropertiesNew() {
 		return propertiesNew;
 	}
-	public void setPropertiesNew(Map<Field, PropertyDescriptor> propertiesNew) {
+	public void setPropertiesNew(Map<Method, PropertyDescriptor> propertiesNew) {
 		this.propertiesNew = propertiesNew;
 	}
 	

@@ -1,5 +1,7 @@
 package net.sf.esfinge.comparison;
 
+import java.util.List;
+
 import net.sf.esfinge.comparison.annotation.DeepComparison;
 import net.sf.esfinge.comparison.processor.ComparisonProcessor;
 import net.sf.esfinge.comparison.processor.RegularProcessor;
@@ -11,13 +13,16 @@ import net.sf.esfinge.metadata.annotation.container.Processors;
 import net.sf.esfinge.metadata.annotation.container.ReflectionReference;
 import net.sf.esfinge.metadata.container.ContainerTarget;
 
-@ContainerFor(ContainerTarget.FIELDS)
+@ContainerFor(ContainerTarget.METHODS)
 public class PropertyDescriptor {
 	
 	@ElementName
 	private String name;
 	
-	//@Processors(DelegateReader.class)
+	@Processors(DelegateReader.class)
+	private List<ComparisonProcessor> processorNew;
+	
+	
 	private ComparisonProcessor processor;
 	
 	@ContainsAnnotation(DeepComparison.class)
@@ -65,5 +70,13 @@ public class PropertyDescriptor {
 	public void setAssociateType(Class type) {
 		this.associateType = type;
 	}
+	public List<ComparisonProcessor> getProcessorNew() {
+		return processorNew;
+	}
+	public void setProcessorNew(List<ComparisonProcessor> processorNew) {
+		this.processorNew = processorNew;
+	}
+	
+	
 
 }

@@ -27,8 +27,6 @@ public class ComparisonComponentNew {
 		
 		addCompared(oldObj, newObj);
 		
-		
-		
 		List<Difference> difs = new ArrayList<Difference>();
 		System.err.println(difs.size());
 

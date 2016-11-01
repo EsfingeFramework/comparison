@@ -24,7 +24,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class ComparisonTest {
+public class ComparisonTestOld {
 	
 	private ClassMock mockBean;
 	private ClassMock mockInternalBean;
@@ -64,7 +64,7 @@ public class ComparisonTest {
 		set(beanB, "prop1", "value");
 		set(beanB, "prop2", 23);
 		
-		ComparisonComponentNew cc = new ComparisonComponentNew();
+		ComparisonComponent cc = new ComparisonComponent();
 		List<Difference> l = cc.compare(beanA, beanB);
 		
 		assertEquals(1, l.size());
@@ -86,7 +86,7 @@ public class ComparisonTest {
 		set(beanB, "prop1", "value");
 		set(beanB, "prop2", 23);
 		
-		ComparisonComponentNew cc = new ComparisonComponentNew();
+		ComparisonComponent cc = new ComparisonComponent();
 		List<Difference> l = cc.compare(beanA, beanB);
 		
 		assertEquals(0, l.size());
@@ -118,7 +118,7 @@ public class ComparisonTest {
 		
 		set(beanB, "prop3", internalBeanB);
 		
-		ComparisonComponentNew cc = new ComparisonComponentNew();
+		ComparisonComponent cc = new ComparisonComponent();
 		List<Difference> l = cc.compare(beanA, beanB);
 		
 		assertEquals(1, l.size());
@@ -154,7 +154,7 @@ public class ComparisonTest {
 		
 		set(beanB, "prop3", internalBeanB);
 		
-		ComparisonComponentNew cc = new ComparisonComponentNew();
+		ComparisonComponent cc = new ComparisonComponent();
 		List<Difference> l = cc.compare(beanA, beanB);
 		
 		assertEquals(1, l.size());
@@ -194,7 +194,7 @@ public class ComparisonTest {
 		
 		set(beanB, "prop3", internalBeanB);
 		
-		ComparisonComponentNew cc = new ComparisonComponentNew();
+		ComparisonComponent cc = new ComparisonComponent();
 		List<Difference> l = cc.compare(beanA, beanB);
 		
 		assertEquals(2, l.size());
@@ -233,7 +233,7 @@ public class ComparisonTest {
 		
 		set(beanB, "prop3", internalBeanB);
 		
-		ComparisonComponentNew cc = new ComparisonComponentNew();
+		ComparisonComponent cc = new ComparisonComponent();
 		List<Difference> l = cc.compare(beanA, beanB);
 		
 		assertEquals(1, l.size());

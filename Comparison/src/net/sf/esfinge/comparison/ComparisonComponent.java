@@ -53,6 +53,7 @@ public class ComparisonComponent {
 		compareProperties(oldObj, newObj, difs, descr);
 		
 		removeCompared(oldObj, newObj);
+		System.err.println(difs.toString());
 		return difs;
 	}
 

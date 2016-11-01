@@ -8,9 +8,9 @@ import net.sf.esfinge.comparison.ComparisonComponentNew;
 import net.sf.esfinge.comparison.difference.Difference;
 
 
-public class Test {
+public class TestOld {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws CompareException {
 		//ComparisonMetadataReader r = new ChainComparisonMetatataReader(
 		//		new AnnotationComparisonMetadataReader(),
 		//		new XMLComparisonMetadataReader()
@@ -22,7 +22,7 @@ public class Test {
 		Person p2 = new Person("Dr. Z�",70.7f,21);
 		Address e2 = new Address("Pariquis","51");
 		p2.setAddress(e2);
-		ComparisonComponentNew c = new ComparisonComponentNew();
+		ComparisonComponent c = new ComparisonComponent();
 		List<Difference> difs = c.compare(p2, p1);
 		
 		for(Difference d : difs){

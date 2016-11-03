@@ -23,7 +23,7 @@ public class ComparisonComponentNew {
 
 		AnnotationReader leitura = new AnnotationReader();
 		
-		Object objeto = leitura.readingAnnotationsTo(oldObj.getClass(),ComparisonDescriptor.class);
+		ComparisonDescriptor descriptor = leitura.readingAnnotationsTo(oldObj.getClass(),ComparisonDescriptor.class);
 		
 		addCompared(oldObj, newObj);
 		

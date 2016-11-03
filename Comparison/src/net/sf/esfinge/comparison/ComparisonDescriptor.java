@@ -6,8 +6,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import net.sf.esfinge.comparison.annotation.IgnoreInComparison;
+import net.sf.esfinge.comparison.reader.delegate.DelegateReader;
+import net.sf.esfinge.container.processor.method.ProcessorAnnotation;
+import net.sf.esfinge.metadata.annotation.container.AnnotedMethods;
+import net.sf.esfinge.metadata.annotation.container.AnnotedMethodsWithoutAnnotation;
 import net.sf.esfinge.metadata.annotation.container.ContainerFor;
 import net.sf.esfinge.metadata.annotation.container.ElementName;
+import net.sf.esfinge.metadata.annotation.container.MethodProcessors;
 import net.sf.esfinge.metadata.annotation.container.ProcessFields;
 import net.sf.esfinge.metadata.annotation.container.ProcessMethods;
 import net.sf.esfinge.metadata.container.ContainerTarget;
@@ -19,7 +25,7 @@ public class ComparisonDescriptor {
 	
 	private Map<String,PropertyDescriptor> properties = new HashMap<String, PropertyDescriptor>();
 	
-	@ProcessMethods
+	@AnnotedMethodsWithoutAnnotation(IgnoreInComparison.class)
 	private Map<Method,PropertyDescriptor> propertiesNew;
 	
 	@ElementName

@@ -13,6 +13,7 @@ import net.sf.esfinge.metadata.annotation.container.AnnotedMethods;
 import net.sf.esfinge.metadata.annotation.container.AnnotedMethodsWithoutAnnotation;
 import net.sf.esfinge.metadata.annotation.container.ContainerFor;
 import net.sf.esfinge.metadata.annotation.container.ElementName;
+import net.sf.esfinge.metadata.annotation.container.ElementProperty;
 import net.sf.esfinge.metadata.annotation.container.MethodProcessors;
 import net.sf.esfinge.metadata.annotation.container.ProcessFields;
 import net.sf.esfinge.metadata.annotation.container.ProcessMethods;
@@ -25,8 +26,8 @@ public class ComparisonDescriptor {
 	
 	private Map<String,PropertyDescriptor> properties = new HashMap<String, PropertyDescriptor>();
 	
-	@AnnotedMethodsWithoutAnnotation(IgnoreInComparison.class)
-	private Map<Method,PropertyDescriptor> propertiesNew;
+	@ElementProperty
+	private Map<String,PropertyDescriptor> propertiesNew;
 	
 	@ElementName
 	private String idProp;
@@ -66,10 +67,10 @@ public class ComparisonDescriptor {
 		this.idProp = idProp;
 	}
 	
-	public Map<Method, PropertyDescriptor> getPropertiesNew() {
+	public Map<String, PropertyDescriptor> getPropertiesNew() {
 		return propertiesNew;
 	}
-	public void setPropertiesNew(Map<Method, PropertyDescriptor> propertiesNew) {
+	public void setPropertiesNew(Map<String, PropertyDescriptor> propertiesNew) {
 		this.propertiesNew = propertiesNew;
 	}
 	

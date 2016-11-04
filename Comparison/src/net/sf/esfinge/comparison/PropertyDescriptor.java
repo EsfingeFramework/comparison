@@ -13,7 +13,7 @@ import net.sf.esfinge.metadata.annotation.container.Processors;
 import net.sf.esfinge.metadata.annotation.container.ReflectionReference;
 import net.sf.esfinge.metadata.container.ContainerTarget;
 
-@ContainerFor(ContainerTarget.METHODS)
+@ContainerFor(ContainerTarget.ALL)
 public class PropertyDescriptor {
 	
 	@ElementName
@@ -76,6 +76,13 @@ public class PropertyDescriptor {
 	public void setProcessorNew(List<ComparisonProcessor> processorNew) {
 		this.processorNew = processorNew;
 	}
+	@Override
+	public String toString() {
+		return "PropertyDescriptor [name=" + name + ", processorNew=" + processorNew + ", processor=" + processor
+				+ ", deepComparison=" + deepComparison + ", collectionComparison=" + collectionComparison
+				+ ", associateType=" + associateType + "]";
+	}
+	
 	
 	
 

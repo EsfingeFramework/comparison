@@ -26,7 +26,7 @@ public class PropertyDescriptor {
 	
 	private ComparisonProcessor processor;
 	
-	@ContainsAnnotation(DeepComparison.class)
+	//@ContainsAnnotation(DeepComparison.class)
 	private boolean deepComparison;
 	
 	private boolean collectionComparison;

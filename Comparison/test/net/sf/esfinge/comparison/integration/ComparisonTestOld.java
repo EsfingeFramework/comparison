@@ -10,7 +10,6 @@ import javax.persistence.Entity;
 import net.sf.esfinge.classmock.ClassMock;
 import net.sf.esfinge.classmock.Location;
 import net.sf.esfinge.comparison.ComparisonComponent;
-import net.sf.esfinge.comparison.ComparisonComponentNew;
 import net.sf.esfinge.comparison.annotation.DeepComparison;
 import net.sf.esfinge.comparison.annotation.IgnoreInComparison;
 import net.sf.esfinge.comparison.difference.Difference;

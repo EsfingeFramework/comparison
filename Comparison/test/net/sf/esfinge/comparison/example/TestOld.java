@@ -4,7 +4,6 @@ import java.util.List;
 
 import net.sf.esfinge.comparison.CompareException;
 import net.sf.esfinge.comparison.ComparisonComponent;
-import net.sf.esfinge.comparison.ComparisonComponentNew;
 import net.sf.esfinge.comparison.difference.Difference;
 
 

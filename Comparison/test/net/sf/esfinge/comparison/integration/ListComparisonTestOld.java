@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import net.sf.esfinge.comparison.CompareException;
 import net.sf.esfinge.comparison.ComparisonComponent;
 import net.sf.esfinge.comparison.difference.Difference;
 import net.sf.esfinge.comparison.difference.ListChanceDifference;

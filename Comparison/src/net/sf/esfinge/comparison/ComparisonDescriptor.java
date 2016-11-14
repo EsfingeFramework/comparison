@@ -14,11 +14,9 @@ import net.sf.esfinge.metadata.container.ContainerTarget;
 public class ComparisonDescriptor {
 	
 	
-	
-	private Map<String,PropertyDescriptor> properties = new HashMap<String, PropertyDescriptor>();
-	
 	@ElementPropertyWithoutAnnotation(IgnoreInComparison.class)
-	private Map<String,PropertyDescriptor> propertiesNew;
+	private Map<String,PropertyDescriptor> properties;
+	//private Map<String,PropertyDescriptor> properties = new HashMap<String, PropertyDescriptor>();
 	
 	@ElementName
 	private String idProp;
@@ -38,7 +36,7 @@ public class ComparisonDescriptor {
 	
 	
 	
-	
+	///OLDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
 	public void addPropertyDescriptor(PropertyDescriptor descProp){
 		properties.put(descProp.getName(), descProp);
 	}
@@ -48,7 +46,7 @@ public class ComparisonDescriptor {
 	public PropertyDescriptor getPropertyDescriptor(String prop){
 		return properties.get(prop);
 	}
-	public Set<String> getProperties(){
+	public Set<String> getSetProperties(){
 		return properties.keySet();
 	}
 	public String getIdProp() {
@@ -57,13 +55,17 @@ public class ComparisonDescriptor {
 	public void setIdProp(String idProp) {
 		this.idProp = idProp;
 	}
+	///OLDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
 	
-	public Map<String, PropertyDescriptor> getPropertiesNew() {
-		return propertiesNew;
+
+	public void setProperties(Map<String, PropertyDescriptor> propertiesNew) {
+		this.properties = propertiesNew;
 	}
-	public void setPropertiesNew(Map<String, PropertyDescriptor> propertiesNew) {
-		this.propertiesNew = propertiesNew;
+	@Override
+	public String toString() {
+		return "ComparisonDescriptor [properties=" + properties + ", idProp=" + idProp + "]";
 	}
+	
 	
 	
 	

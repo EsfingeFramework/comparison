@@ -10,7 +10,7 @@ import net.sf.esfinge.comparison.difference.Difference;
 
 public class TestOld {
 
-	public static void main(String[] args) throws CompareException {
+	public static void main(String[] args) throws Exception {
 		//ComparisonMetadataReader r = new ChainComparisonMetatataReader(
 		//		new AnnotationComparisonMetadataReader(),
 		//		new XMLComparisonMetadataReader()

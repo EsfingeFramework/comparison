@@ -24,10 +24,16 @@ public class DeepComparisonLayer extends ComparisonLayer {
 	private void deepComparison(Object oldValue, Object newValue,
 			List<Difference> difs, PropertyDescriptor descProp)
 			throws CompareException {
-		List<Difference> difsProp = getComponent().compare(oldValue, newValue);
-		for (Difference d : difsProp) {
-			d.setPath(descProp.getName() + "." + d.getPath());
-			difs.add(d);
+		List<Difference> difsProp;
+		try {
+			difsProp = getComponent().compare(oldValue, newValue);
+			for (Difference d : difsProp) {
+				d.setPath(descProp.getName() + "." + d.getPath());
+				difs.add(d);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 

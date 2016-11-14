@@ -83,7 +83,7 @@ public class ListComparisonTestOld {
 	}
 	
 	@Test
-	public void differencesInStringList() throws CompareException{
+	public void differencesInStringList() throws Exception{
 		Bean b1 = new Bean();
 		b1.setList(Arrays.asList("Eduardo", "Andr�", "Henrique"));
 		Bean b2 = new Bean();
@@ -102,7 +102,7 @@ public class ListComparisonTestOld {
 	}
 	
 	@Test
-	public void differencesInCompositeList() throws CompareException{
+	public void differencesInCompositeList() throws Exception{
 		IntBean old_ib1 = new IntBean(1,13,"ABC");
 		IntBean old_ib2 = new IntBean(2,23,"BCD");
 		IntBean old_ib3 = new IntBean(3,33,"CDE");
@@ -129,7 +129,7 @@ public class ListComparisonTestOld {
 	}
 	
 	@Test
-	public void differencesInCompositeListWithNullID() throws CompareException{
+	public void differencesInCompositeListWithNullID() throws Exception{
 		IntBean old_ib1 = new IntBean(1,13,"ABC");
 		IntBean old_ib2 = new IntBean(2,23,"BCD");
 		
@@ -153,7 +153,7 @@ public class ListComparisonTestOld {
 	}
 	
 	@Test
-	public void differencesInListItensProp() throws CompareException{
+	public void differencesInListItensProp() throws Exception{
 		IntBean old_ib1 = new IntBean(1,13,"ABC");
 		IntBean old_ib2 = new IntBean(2,23,"BCD");
 		IntBean old_ib3 = new IntBean(3,33,"CDE");

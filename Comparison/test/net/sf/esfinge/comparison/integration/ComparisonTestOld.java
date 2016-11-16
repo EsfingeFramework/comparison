@@ -210,6 +210,7 @@ public class ComparisonTestOld {
 		mockInternalBean.addAnnotation(Entity.class);
 		intClazz = mockInternalBean.createClass();
 		mockBean.addProperty("prop3", intClazz);
+		mockBean.addAnnotation("prop3", DeepComparison.class,Location.GETTER);
 		clazz = mockBean.createClass();
 		
 		Object beanA = clazz.newInstance();

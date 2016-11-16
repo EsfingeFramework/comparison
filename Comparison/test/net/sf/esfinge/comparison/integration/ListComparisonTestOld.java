@@ -84,9 +84,9 @@ public class ListComparisonTestOld {
 	@Test
 	public void differencesInStringList() throws Exception{
 		Bean b1 = new Bean();
-		b1.setList(Arrays.asList("Eduardo", "Andr�", "Henrique"));
+		b1.setList(Arrays.asList("Eduardo", "Andriano", "Henrique"));
 		Bean b2 = new Bean();
-		b2.setList(Arrays.asList("Eduardo", "Henrique", "Jo�o"));
+		b2.setList(Arrays.asList("Eduardo", "Henrique", "Joao"));
 		
 		ComparisonComponent cc = new ComparisonComponent();
 		List<Difference> l = cc.compare(b1, b2);
@@ -94,7 +94,7 @@ public class ListComparisonTestOld {
 		assertEquals(2, l.size());
 		assertEquals("list", l.get(0).getPath());
 		assertEquals(ListChange.ADDED, ((ListChanceDifference)l.get(0)).getChangeType());
-		assertEquals("Jo�o", ((ListChanceDifference)l.get(0)).getItem());
+		assertEquals("Joao", ((ListChanceDifference)l.get(0)).getItem());
 		assertEquals("list", l.get(1).getPath());
 		assertEquals(ListChange.REMOVED, ((ListChanceDifference)l.get(1)).getChangeType());
 		assertEquals("Andr�", ((ListChanceDifference)l.get(1)).getItem());

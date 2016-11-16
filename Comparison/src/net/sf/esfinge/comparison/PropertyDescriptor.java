@@ -10,6 +10,7 @@ import net.sf.esfinge.metadata.annotation.container.ContainerFor;
 import net.sf.esfinge.metadata.annotation.container.ContainsAnnotation;
 import net.sf.esfinge.metadata.annotation.container.ElementName;
 import net.sf.esfinge.metadata.annotation.container.Processors;
+import net.sf.esfinge.metadata.annotation.container.PropertyContainsAnnotation;
 import net.sf.esfinge.metadata.annotation.container.PropertyProcessors;
 import net.sf.esfinge.metadata.annotation.container.ReflectionReference;
 import net.sf.esfinge.metadata.container.ContainerTarget;
@@ -26,7 +27,6 @@ public class PropertyDescriptor {
 	
 	private ComparisonProcessor processor;
 	
-	//@ContainsAnnotation(DeepComparison.class)
 	private boolean deepComparison;
 	
 	private boolean collectionComparison;

@@ -23,54 +23,7 @@ import net.sf.esfinge.comparison.reader.MetadataReaderProvider;
 
 public class ListComparisonTestOld {
 	
-	@Entity
-	public class IntBean{
-		@Id private Integer id;
-		private int prop1;
-		private String prop2;
-		public IntBean(Integer id, int prop1, String prop2) {
-			super();
-			this.id = id;
-			this.prop1 = prop1;
-			this.prop2 = prop2;
-		}
-		public Integer getId() {
-			return id;
-		}
-		public void setId(Integer id) {
-			this.id = id;
-		}
-		public int getProp1() {
-			return prop1;
-		}
-		public void setProp1(int prop1) {
-			this.prop1 = prop1;
-		}
-		public String getProp2() {
-			return prop2;
-		}
-		public void setProp2(String prop2) {
-			this.prop2 = prop2;
-		}
-	}
-	
-	public class Bean{
-		private List<String> list;
-		private List<IntBean> compList;
-		public List<String> getList() {
-			return list;
-		}
-		public void setList(List<String> list) {
-			this.list = list;
-		}
-		public List<IntBean> getCompList() {
-			return compList;
-		}
-		public void setCompList(List<IntBean> compList) {
-			this.compList = compList;
-		}
-	}
-	
+
 	@BeforeClass
 	public static void setReaderProvider(){
 		ChainComparisonMetatataReader chainReader = 
@@ -97,7 +50,7 @@ public class ListComparisonTestOld {
 		assertEquals("Joao", ((ListChanceDifference)l.get(0)).getItem());
 		assertEquals("list", l.get(1).getPath());
 		assertEquals(ListChange.REMOVED, ((ListChanceDifference)l.get(1)).getChangeType());
-		assertEquals("Andr�", ((ListChanceDifference)l.get(1)).getItem());
+		assertEquals("Andriano", ((ListChanceDifference)l.get(1)).getItem());
 	}
 	
 	@Test

@@ -2,6 +2,7 @@ package net.sf.esfinge.comparison;
 
 import java.util.List;
 
+import net.sf.esfinge.comparison.annotation.CollectionComparison;
 import net.sf.esfinge.comparison.annotation.DeepComparison;
 import net.sf.esfinge.comparison.processor.ComparisonProcessor;
 import net.sf.esfinge.comparison.processor.RegularProcessor;
@@ -28,7 +29,7 @@ public class PropertyDescriptor {
 	private ComparisonProcessor processor;
 	
 	private boolean deepComparison;
-	
+
 	private boolean collectionComparison;
 	
 	@ReflectionReference

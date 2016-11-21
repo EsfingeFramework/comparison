@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.beanutils.PropertyUtils;
+
 import net.sf.esfinge.comparison.difference.Difference;
 import net.sf.esfinge.comparison.layer.CollectionItensComparisonLayer;
 import net.sf.esfinge.comparison.layer.ComparisonLayer;
@@ -68,8 +70,8 @@ public class ComparisonComponent {
 			throws CompareException {
 		for (String prop : descr.getSetProperties()) {
 			try {
-				Object oldValue = BeanUtils.getProperty(oldObj, prop);
-				Object newValue = BeanUtils.getProperty(newObj, prop);
+				Object oldValue = PropertyUtils.getSimpleProperty(oldObj, prop);
+				Object newValue = PropertyUtils.getSimpleProperty(newObj, prop);
 				
 				//Modifico Aqui
 				PropertyDescriptor descProp = descr.getPropertyDescriptor(prop);

@@ -33,7 +33,7 @@ public class JPAComparisonMetadataReader implements
 				}
 				
 			} catch (Exception e) {
-				throw new RuntimeException("Problemas ao recuperar o método", e);
+				throw new RuntimeException("Problemas ao recuperar o metodo", e);
 			}
 		}
 	}

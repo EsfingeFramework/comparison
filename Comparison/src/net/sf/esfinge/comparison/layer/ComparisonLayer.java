@@ -14,7 +14,7 @@ public abstract class ComparisonLayer {
 	private ComparisonComponent component;
 	
 	public abstract boolean compare(Object oldValue, Object newValue, 
-			List<Difference> difs, PropertyDescriptor descProp) throws CompareException, IllegalAccessException, InvocationTargetException, NoSuchMethodException ;
+			List<Difference> difs, PropertyDescriptor descProp) throws CompareException, IllegalAccessException, InvocationTargetException, NoSuchMethodException, Exception ;
 	
 	public ComparisonComponent getComponent() {
 		return component;

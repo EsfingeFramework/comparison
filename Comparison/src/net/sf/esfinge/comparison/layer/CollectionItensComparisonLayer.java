@@ -20,7 +20,7 @@ public class CollectionItensComparisonLayer extends ComparisonLayer {
 	@Override
 	public boolean compare(Object oldValue, Object newValue,
 			List<Difference> difs, PropertyDescriptor descProp)
-			throws CompareException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+			throws Exception {
 		
 		if(descProp.isCollectionComparison()){
 			Collection oldCol = (Collection) oldValue;
@@ -38,7 +38,7 @@ public class CollectionItensComparisonLayer extends ComparisonLayer {
 	}
 
 	private void compareComposedCollections(List<Difference> difs,
-			PropertyDescriptor descProp, Collection oldCol, Collection newCol) throws CompareException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+			PropertyDescriptor descProp, Collection oldCol, Collection newCol) throws Exception {
 		
 		
 		ComparisonDescriptor cd = Repository.getInstance().getMetadata(descProp.getAssociateType());

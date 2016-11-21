@@ -86,11 +86,10 @@ public class ComparisonComponent {
 
 	private void compareUsingLayers(List<Difference> difs, Object oldValue,
 			Object newValue, PropertyDescriptor descProp)
-			throws CompareException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+			throws Exception {
 		boolean compared = false;
 		for(int i=0; i<layers.size() && !compared; i++){
 			ComparisonLayer layer = layers.get(i);
-			System.out.println(layer);
 			compared = layer.compare(oldValue, newValue, difs, descProp);
 			
 		}

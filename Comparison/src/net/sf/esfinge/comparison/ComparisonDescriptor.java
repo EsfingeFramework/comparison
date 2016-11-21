@@ -60,12 +60,7 @@ public class ComparisonDescriptor {
 
 	public void setProperties(Map<String, PropertyDescriptor> propertiesNew) {
 		this.properties = propertiesNew;
-	}
-	@Override
-	public String toString() {
-		return "ComparisonDescriptor [properties=" + properties + ", idProp=" + idProp + "]";
-	}
-	
+	}	
 	
 	
 	

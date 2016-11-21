@@ -24,13 +24,13 @@ public class Repository {
 	private Repository(){
 		cache = new HashMap<Class, ComparisonDescriptor>();
 	}
-	public ComparisonDescriptor getMetadata(Class clazz){
+	public ComparisonDescriptor getMetadata(Class clazz) throws Exception{
 		if(cache.containsKey(clazz)){
 			return cache.get(clazz); 
 		}
-		ComparisonMetadataReader reader = MetadataReaderProvider.get();
+		AnnotationReader reader = new AnnotationReader();
 		ComparisonDescriptor cd = new ComparisonDescriptor();
-		reader.populateContainer(clazz,cd);
+		cd = reader.readingAnnotationsTo(clazz, cd.getClass());
 		cache.put(clazz, cd);
 		return cd;
 	}

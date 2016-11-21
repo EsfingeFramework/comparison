@@ -32,7 +32,7 @@ public class PropertyDescriptor {
 
 	private boolean collectionComparison;
 	
-	@ReflectionReference(DeepComparison.class)
+	@ReflectionReference
 	private Class associateType;
 	
 	
@@ -79,13 +79,6 @@ public class PropertyDescriptor {
 	public void setProcessorNew(List<ComparisonProcessor> processorNew) {
 		this.processorNew = processorNew;
 	}
-	@Override
-	public String toString() {
-		return "PropertyDescriptor [name=" + name + ", processorNew=" + processorNew + ", processor=" + processor
-				+ ", deepComparison=" + deepComparison + ", collectionComparison=" + collectionComparison
-				+ ", associateType=" + associateType + "]";
-	}
-	
 	
 	
 

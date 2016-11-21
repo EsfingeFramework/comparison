@@ -75,10 +75,9 @@ public class ComparisonComponent {
 				Object newValue = PropertyUtils.getSimpleProperty(newObj, prop);
 				
 				//Modifico Aqui
-				PropertyDescriptor descProp = descr.getPropertyDescriptor(prop);
+				PropertyDescriptor descriptor = descr.getPropertyDescriptor(prop);
 				
-				
-				compareUsingLayers(difs, oldValue, newValue, descProp);
+				compareUsingLayers(difs, oldValue, newValue, descriptor);
 			} catch (Exception e) {
 				throw new CompareException("Error retrieving property", e);
 			}
@@ -91,7 +90,9 @@ public class ComparisonComponent {
 		boolean compared = false;
 		for(int i=0; i<layers.size() && !compared; i++){
 			ComparisonLayer layer = layers.get(i);
+			System.out.println(layer);
 			compared = layer.compare(oldValue, newValue, difs, descProp);
+			
 		}
 	}
 	

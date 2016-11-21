@@ -32,8 +32,9 @@ public class PropertyDescriptor {
 
 	private boolean collectionComparison;
 	
-	@ReflectionReference
+	@ReflectionReference(DeepComparison.class)
 	private Class associateType;
+	
 	
 	public ComparisonProcessor getProcessor() {
 		if(processor == null)

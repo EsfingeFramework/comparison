@@ -5,6 +5,7 @@ import java.util.Map;
 
 import net.sf.esfinge.comparison.reader.ComparisonMetadataReader;
 import net.sf.esfinge.comparison.reader.MetadataReaderProvider;
+import net.sf.esfinge.metadata.AnnotationReader;
 
 
 public class Repository {

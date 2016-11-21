@@ -13,7 +13,6 @@ import net.sf.esfinge.comparison.Repository;
 import net.sf.esfinge.comparison.difference.Difference;
 import net.sf.esfinge.comparison.difference.ListChanceDifference;
 import net.sf.esfinge.comparison.difference.ListChange;
-import net.sf.esfinge.comparison.utils.BeanUtils;
 
 
 public class CollectionItensComparisonLayer extends ComparisonLayer {
@@ -40,6 +39,8 @@ public class CollectionItensComparisonLayer extends ComparisonLayer {
 
 	private void compareComposedCollections(List<Difference> difs,
 			PropertyDescriptor descProp, Collection oldCol, Collection newCol) throws CompareException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+		
+		
 		ComparisonDescriptor cd = Repository.getInstance().getMetadata(descProp.getAssociateType());
 		searchForComplexAdditions(difs, descProp, oldCol, newCol, cd);
 		searchForComplexRemovals(difs, descProp, oldCol, newCol, cd);

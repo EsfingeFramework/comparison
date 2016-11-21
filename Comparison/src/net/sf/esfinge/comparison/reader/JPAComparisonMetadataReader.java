@@ -2,7 +2,6 @@ package net.sf.esfinge.comparison.reader;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.Collection;
 
 import javax.persistence.Entity;
@@ -19,9 +18,6 @@ public class JPAComparisonMetadataReader implements
 	@Override
 	public void populateContainer(Class c, ComparisonDescriptor descriptor) {
 		descriptor.setIdProp(BeanUtils.getIdProp(c));
-		System.out.println("Descriptor");
-		System.out.println(descriptor);
-		System.out.println("Descriptor");
 		for(String prop : descriptor.getSetProperties()){
 			try {
 				Method m = c.getMethod(BeanUtils.propertyToGetter(prop));

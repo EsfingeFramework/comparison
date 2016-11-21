@@ -12,7 +12,7 @@ public class Bean{
 	
 	private List<IntBean> compList;
 	
-	@DeepComparison
+	@CollectionComparison
 	public List<String> getList() {
 		return list;
 	}

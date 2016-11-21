@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.beanutils.PropertyUtils;
@@ -55,7 +56,9 @@ public class ComparisonComponent {
 		AnnotationReader leitura = new AnnotationReader();
 		
 		ComparisonDescriptor descr = leitura.readingAnnotationsTo(oldObj.getClass(),ComparisonDescriptor.class);
-
+		
+		java.beans.PropertyDescriptor describe = PropertyUtils.getPropertyDescriptor(descr, "properties");
+		
 		//ComparisonDescriptor descr = Repository.getInstance().
 		//	getMetadata(newObj.getClass());
 
@@ -80,6 +83,7 @@ public class ComparisonComponent {
 				compareUsingLayers(difs, oldValue, newValue, descriptor);
 			} catch (Exception e) {
 				throw new CompareException("Error retrieving property", e);
+				//e.printStackTrace();
 			}
 		}
 	}

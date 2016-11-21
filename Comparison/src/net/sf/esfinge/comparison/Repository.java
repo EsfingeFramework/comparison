@@ -5,7 +5,6 @@ import java.util.Map;
 
 import net.sf.esfinge.comparison.reader.ComparisonMetadataReader;
 import net.sf.esfinge.comparison.reader.MetadataReaderProvider;
-import net.sf.esfinge.metadata.AnnotationReader;
 
 
 public class Repository {
@@ -24,13 +23,13 @@ public class Repository {
 	private Repository(){
 		cache = new HashMap<Class, ComparisonDescriptor>();
 	}
-	public ComparisonDescriptor getMetadata(Class clazz) throws Exception{
+	public ComparisonDescriptor getMetadata(Class clazz){
 		if(cache.containsKey(clazz)){
 			return cache.get(clazz); 
 		}
-		AnnotationReader reader = new AnnotationReader();
+		ComparisonMetadataReader reader = MetadataReaderProvider.get();
 		ComparisonDescriptor cd = new ComparisonDescriptor();
-		cd = reader.readingAnnotationsTo(clazz, cd.getClass());
+		reader.populateContainer(clazz,cd);
 		cache.put(clazz, cd);
 		return cd;
 	}

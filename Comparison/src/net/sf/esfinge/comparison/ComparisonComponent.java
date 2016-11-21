@@ -1,5 +1,6 @@
 package net.sf.esfinge.comparison;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -86,7 +87,7 @@ public class ComparisonComponent {
 
 	private void compareUsingLayers(List<Difference> difs, Object oldValue,
 			Object newValue, PropertyDescriptor descProp)
-			throws CompareException {
+			throws CompareException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
 		boolean compared = false;
 		for(int i=0; i<layers.size() && !compared; i++){
 			ComparisonLayer layer = layers.get(i);

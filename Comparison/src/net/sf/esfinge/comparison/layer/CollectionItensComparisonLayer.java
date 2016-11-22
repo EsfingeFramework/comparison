@@ -57,7 +57,7 @@ public class CollectionItensComparisonLayer extends ComparisonLayer {
 			boolean found = false;
 			IdSearch:
 			for(Object newItem : newCol){
-				if(id != null && id.equals(PropertyUtils.getSimpleProperty(newItem, cd.getIdProp()))){
+				if(id != null && id.equals(BeanUtils.getProperty(newItem, cd.getIdProp()))){
 					found = true;
 					break IdSearch;
 				}
@@ -82,7 +82,7 @@ public class CollectionItensComparisonLayer extends ComparisonLayer {
 				boolean found = false;
 				IdSearch:
 				for(Object oldItem : oldCol){
-					if(id.equals(PropertyUtils.getSimpleProperty(oldItem, cd.getIdProp()))){
+					if(id.equals(BeanUtils.getProperty(oldItem, cd.getIdProp()))){
 						found = true;
 						List<Difference> l;
 						try {
@@ -92,9 +92,7 @@ public class CollectionItensComparisonLayer extends ComparisonLayer {
 								difs.add(d);
 							}
 
-						} catch (Exception e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
+						} catch (Exception e) {							e.printStackTrace();
 						}
 						break IdSearch;
 					}

@@ -14,10 +14,7 @@ public class MetadataReaderProvider {
 	
 	private ComparisonMetadataReader reader;
 	
-	private MetadataReaderProvider(){
-		//set the default implementation
-		reader = new AnnotationComparisonMetadataReader();
-	}
+
 	public void setReader(ComparisonMetadataReader reader){
 		this.reader = reader;
 	}

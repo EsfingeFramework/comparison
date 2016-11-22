@@ -9,6 +9,7 @@ import javax.persistence.Transient;
 
 import net.sf.esfinge.comparison.ComparisonDescriptor;
 import net.sf.esfinge.comparison.utils.BeanUtils;
+import net.sf.esfinge.metadata.AnnotationReader;
 
 
 public class JPAComparisonMetadataReader implements
@@ -32,7 +33,7 @@ public class JPAComparisonMetadataReader implements
 				}
 				
 			} catch (Exception e) {
-				throw new RuntimeException("Problemas ao recuperar o metodo", e);
+				throw new RuntimeException("Problemas ao recuperar o m�todo", e);
 			}
 		}
 	}
@@ -45,5 +46,4 @@ public class JPAComparisonMetadataReader implements
 			descriptor.getPropertyDescriptor(prop).setDeepComparison(true);
 			descriptor.getPropertyDescriptor(prop).setAssociateType(genericParam);
 		}
-	}
-}
+	}}

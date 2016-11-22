@@ -37,6 +37,7 @@ public class PropertyDescriptor {
 	private Class associateType;
 	
 	
+	
 	public ComparisonProcessor getProcessor() {
 		if(processor == null)
 			processor = new RegularProcessor();

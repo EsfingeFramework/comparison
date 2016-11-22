@@ -16,7 +16,6 @@ import net.sf.esfinge.comparison.difference.Difference;
 import net.sf.esfinge.comparison.difference.ListChanceDifference;
 import net.sf.esfinge.comparison.difference.ListChange;
 import net.sf.esfinge.comparison.difference.PropertyDifference;
-import net.sf.esfinge.comparison.reader.AnnotationComparisonMetadataReader;
 import net.sf.esfinge.comparison.reader.ChainComparisonMetatataReader;
 import net.sf.esfinge.comparison.reader.JPAComparisonMetadataReader;
 import net.sf.esfinge.comparison.reader.MetadataReaderProvider;
@@ -28,7 +27,6 @@ public class ListComparisonTest {
 	public static void setReaderProvider(){
 		ChainComparisonMetatataReader chainReader = 
 			new ChainComparisonMetatataReader(
-					new AnnotationComparisonMetadataReader(),
 					new JPAComparisonMetadataReader()
 			);
 		MetadataReaderProvider.set(chainReader);

@@ -19,7 +19,7 @@ public class Repository {
 	}
 	
 	private Map<Class, ComparisonDescriptor> cache;
-	
+		
 	private Repository(){
 		cache = new HashMap<Class, ComparisonDescriptor>();
 	}

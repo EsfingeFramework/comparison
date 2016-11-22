@@ -14,7 +14,6 @@ import net.sf.esfinge.comparison.annotation.DeepComparison;
 import net.sf.esfinge.comparison.annotation.IgnoreInComparison;
 import net.sf.esfinge.comparison.difference.Difference;
 import net.sf.esfinge.comparison.difference.PropertyDifference;
-import net.sf.esfinge.comparison.reader.AnnotationComparisonMetadataReader;
 import net.sf.esfinge.comparison.reader.ChainComparisonMetatataReader;
 import net.sf.esfinge.comparison.reader.JPAComparisonMetadataReader;
 import net.sf.esfinge.comparison.reader.MetadataReaderProvider;
@@ -45,7 +44,6 @@ public class ComparisonTest {
 	public static void setReaderProvider(){
 		ChainComparisonMetatataReader chainReader = 
 			new ChainComparisonMetatataReader(
-					new AnnotationComparisonMetadataReader(),
 					new JPAComparisonMetadataReader()
 			);
 		MetadataReaderProvider.set(chainReader);

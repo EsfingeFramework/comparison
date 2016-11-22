@@ -13,6 +13,8 @@ import net.sf.esfinge.comparison.Repository;
 import net.sf.esfinge.comparison.difference.Difference;
 import net.sf.esfinge.comparison.difference.ListChanceDifference;
 import net.sf.esfinge.comparison.difference.ListChange;
+import net.sf.esfinge.comparison.utils.BeanUtils;
+import net.sf.esfinge.metadata.AnnotationReader;
 
 
 public class CollectionItensComparisonLayer extends ComparisonLayer {
@@ -42,6 +44,7 @@ public class CollectionItensComparisonLayer extends ComparisonLayer {
 		
 		
 		ComparisonDescriptor cd = Repository.getInstance().getMetadata(descProp.getAssociateType());
+		//ComparisonDescriptor cd = new AnnotationReader().readingAnnotationsTo(descProp.getAssociateType(), ComparisonDescriptor.class);
 		searchForComplexAdditions(difs, descProp, oldCol, newCol, cd);
 		searchForComplexRemovals(difs, descProp, oldCol, newCol, cd);
 	}
@@ -50,7 +53,7 @@ public class CollectionItensComparisonLayer extends ComparisonLayer {
 			PropertyDescriptor descProp, Collection oldCol, Collection newCol,
 			ComparisonDescriptor cd) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
 		for(Object oldItem : oldCol){
-			Object id = PropertyUtils.getSimpleProperty(oldItem, cd.getIdProp());
+			Object id = BeanUtils.getProperty(oldItem, cd.getIdProp());
 			boolean found = false;
 			IdSearch:
 			for(Object newItem : newCol){
@@ -70,7 +73,10 @@ public class CollectionItensComparisonLayer extends ComparisonLayer {
 			PropertyDescriptor descProp, Collection oldCol, Collection newCol,
 			ComparisonDescriptor cd) throws CompareException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
 		for(Object newItem : newCol){
-			Object id = PropertyUtils.getSimpleProperty(newItem, cd.getIdProp());
+			System.out.println("searchForComplexAdditions");
+			System.out.println(cd.getIdProp());
+			Object id = BeanUtils.getProperty(newItem, cd.getIdProp());
+
 			if(id == null){
 				difs.add(new ListChanceDifference(descProp.getName(), 
 						newItem, ListChange.ADDED));

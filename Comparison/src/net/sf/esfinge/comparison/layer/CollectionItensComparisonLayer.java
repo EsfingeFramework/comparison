@@ -73,8 +73,6 @@ public class CollectionItensComparisonLayer extends ComparisonLayer {
 			PropertyDescriptor descProp, Collection oldCol, Collection newCol,
 			ComparisonDescriptor cd) throws CompareException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
 		for(Object newItem : newCol){
-			System.out.println("searchForComplexAdditions");
-			System.out.println(cd.getIdProp());
 			Object id = BeanUtils.getProperty(newItem, cd.getIdProp());
 
 			if(id == null){

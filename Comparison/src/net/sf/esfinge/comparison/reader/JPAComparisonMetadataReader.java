@@ -1,5 +1,6 @@
 package net.sf.esfinge.comparison.reader;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
@@ -18,32 +19,27 @@ public class JPAComparisonMetadataReader implements
 
 	@Override
 	public void populateContainer(Class c, ComparisonDescriptor descriptor) {
-		descriptor.setIdProp(BeanUtils.getIdProp(c));
-		for(String prop : descriptor.getSetProperties()){
-			try {
-				Method m = c.getMethod(BeanUtils.propertyToGetter(prop));
-				Class returnType = m.getReturnType();
-				if(returnType.isAnnotationPresent(Entity.class)){
-					descriptor.getPropertyDescriptor(prop).setDeepComparison(true);
-				}else if(Collection.class.isAssignableFrom(returnType)){
-					configureCollectionComparison(descriptor, prop, m);
-				}
-				if(BeanUtils.isAnnotationPresentInProperty(prop, c, Transient.class)){
-					descriptor.removePropertyDescriptor(prop);
-				}
+		
 				
-			} catch (Exception e) {
-				throw new RuntimeException("Problemas ao recuperar o m�todo", e);
-			}
-		}
+		descriptor.setIdProp(BeanUtils.getIdProp(c));
+		//for(String prop : descriptor.getSetProperties()){
+		//	try {
+		//		Method m = c.getMethod(BeanUtils.propertyToGetter(prop));
+		//		Class returnType = m.getReturnType();
+		//		if(returnType.isAnnotationPresent(Entity.class)){
+		//			descriptor.getPropertyDescriptor(prop).setDeepComparison(true);
+		//		}else if(Collection.class.isAssignableFrom(returnType)){
+		//			configureCollectionComparison(descriptor, prop, m);
+		//		}
+		//		System.out.println("");
+		//		if(BeanUtils.isAnnotationPresentInProperty(prop, c, Transient.class)){
+		//			descriptor.removePropertyDescriptor(prop);
+		//		}
+		//		
+		//	} catch (Exception e) {
+		//		throw new RuntimeException("Problemas ao recuperar o metodo", e);
+		//	}
+		//}
+		//System.out.println();
 	}
-
-	private void configureCollectionComparison(ComparisonDescriptor descriptor,
-			String prop, Method m) {
-		descriptor.getPropertyDescriptor(prop).setCollectionComparison(true);
-		Class genericParam = (Class)((ParameterizedType) m.getGenericReturnType()).getActualTypeArguments()[0];
-		if(genericParam.isAnnotationPresent(Entity.class)){
-			descriptor.getPropertyDescriptor(prop).setDeepComparison(true);
-			descriptor.getPropertyDescriptor(prop).setAssociateType(genericParam);
-		}
-	}}
+}

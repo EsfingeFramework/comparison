@@ -49,9 +49,7 @@ public class AssociateReadingProcessor implements AnnotationReadingProcessor {
 				}
 				else
 				{
-					org.apache.commons.beanutils.BeanUtils.setProperty(container, field.getName(), method.getReturnType());
-						System.out.println(fieldElement);
-					
+					org.apache.commons.beanutils.BeanUtils.setProperty(container, field.getName(), method.getReturnType());					
 				}
 				
 				

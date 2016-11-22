@@ -10,7 +10,6 @@ public class WeightComparisonReader implements AnnotationReader<Weight> {
 	@Override
 	public void readAnnotation(Weight annotation, 
 			PropertyDescriptor descriptor) {
-		System.out.println("==================EXECUTE=======================");
 		ToleranceProcessor processor = new ToleranceProcessor(0.1);
 		descriptor.setProcessor(processor);
 	}

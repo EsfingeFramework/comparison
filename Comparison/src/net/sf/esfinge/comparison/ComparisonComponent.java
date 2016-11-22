@@ -57,13 +57,9 @@ public class ComparisonComponent {
 		
 		ComparisonDescriptor descr = leitura.readingAnnotationsTo(oldObj.getClass(),ComparisonDescriptor.class);
 				
-		//ComparisonDescriptor descr = Repository.getInstance().
-		//	getMetadata(newObj.getClass());
-
 		compareProperties(oldObj, newObj, difs, descr);
 		
 		removeCompared(oldObj, newObj);
-		System.err.println(difs.toString());
 		return difs;
 	}
 

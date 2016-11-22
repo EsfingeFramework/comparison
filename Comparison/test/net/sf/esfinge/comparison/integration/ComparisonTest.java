@@ -237,7 +237,6 @@ public class ComparisonTest {
 		List<Difference> l = cc.compare(beanA, beanB);
 		
 		
-		System.out.println(l.get(0).getPath());
 		assertEquals(1, l.size());
 		assertEquals("prop3.intProp1", l.get(0).getPath());
 		assertEquals("newvalue", ((PropertyDifference)l.get(0)).getNewValue());

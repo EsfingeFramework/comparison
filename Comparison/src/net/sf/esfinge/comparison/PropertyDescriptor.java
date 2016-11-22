@@ -61,14 +61,12 @@ public class PropertyDescriptor {
 		this.deepComparison = deep;
 	}
 	public boolean isCollectionComparison() {
-		System.err.println(collectionComparison);
 		return collectionComparison;
 	}
 	public void setCollectionComparison(boolean listComparison) {
 		this.collectionComparison = listComparison;
 	}
 	public Class getAssociateType() {
-		System.err.println(associateType);
 		return associateType;
 	}
 	public void setAssociateType(Class type) {

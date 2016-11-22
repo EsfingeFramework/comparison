@@ -17,8 +17,6 @@ public class NullComparisonLayer extends ComparisonLayer {
 		if ((oldValue == null && newValue != null)
 				|| (oldValue != null && newValue == null)) {
 			Difference dif = new PropertyDifference(descProp.getName(), oldValue,newValue);
-			System.out.println("Difference");
-			System.out.println(dif);
 			difs.add(dif);
 			return true;
 		}

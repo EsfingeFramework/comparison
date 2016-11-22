@@ -56,9 +56,7 @@ public class ComparisonComponent {
 		AnnotationReader leitura = new AnnotationReader();
 		
 		ComparisonDescriptor descr = leitura.readingAnnotationsTo(oldObj.getClass(),ComparisonDescriptor.class);
-		
-		java.beans.PropertyDescriptor describe = PropertyUtils.getPropertyDescriptor(descr, "properties");
-		
+				
 		//ComparisonDescriptor descr = Repository.getInstance().
 		//	getMetadata(newObj.getClass());
 

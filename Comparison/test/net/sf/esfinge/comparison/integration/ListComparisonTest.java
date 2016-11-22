@@ -21,7 +21,7 @@ import net.sf.esfinge.comparison.reader.ChainComparisonMetatataReader;
 import net.sf.esfinge.comparison.reader.JPAComparisonMetadataReader;
 import net.sf.esfinge.comparison.reader.MetadataReaderProvider;
 
-public class ListComparisonTestOld {
+public class ListComparisonTest {
 	
 
 	@BeforeClass

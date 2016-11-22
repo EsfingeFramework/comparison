@@ -7,7 +7,7 @@ import net.sf.esfinge.comparison.ComparisonComponent;
 import net.sf.esfinge.comparison.difference.Difference;
 
 
-public class TestOld {
+public class Test {
 
 	public static void main(String[] args) throws Exception {
 		//ComparisonMetadataReader r = new ChainComparisonMetatataReader(

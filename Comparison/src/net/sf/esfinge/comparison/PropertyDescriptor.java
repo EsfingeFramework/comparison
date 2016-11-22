@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.sf.esfinge.comparison.annotation.CollectionComparison;
 import net.sf.esfinge.comparison.annotation.DeepComparison;
+import net.sf.esfinge.comparison.metadata.Associate;
 import net.sf.esfinge.comparison.processor.ComparisonProcessor;
 import net.sf.esfinge.comparison.processor.RegularProcessor;
 import net.sf.esfinge.comparison.reader.delegate.DelegateReader;
@@ -32,7 +33,7 @@ public class PropertyDescriptor {
 
 	private boolean collectionComparison;
 	
-	@ReflectionReference
+	@Associate({CollectionComparison.class,DeepComparison.class})
 	private Class associateType;
 	
 	

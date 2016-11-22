@@ -23,7 +23,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class ComparisonTestOld {
+public class ComparisonTest {
 	
 	private ClassMock mockBean;
 	private ClassMock mockInternalBean;

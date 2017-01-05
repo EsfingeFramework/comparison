@@ -92,12 +92,9 @@ public class CollectionItensComparisonLayer extends ComparisonLayer {
 								difs.add(d);
 							}
 
-<<<<<<< HEAD
 						} catch (Exception e) {
 							e.printStackTrace();
-=======
-						} catch (Exception e) {							e.printStackTrace();
->>>>>>> branch 'dev_marco_alpha' of https://github.com/EsfingeFramework/comparison.git
+				
 						}
 						break IdSearch;
 					}

@@ -54,7 +54,6 @@ public class AssociateReadingProcessor implements AnnotationReadingProcessor {
 				
 				
 			} catch (NoSuchMethodException | SecurityException | IllegalAccessException | InvocationTargetException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	}

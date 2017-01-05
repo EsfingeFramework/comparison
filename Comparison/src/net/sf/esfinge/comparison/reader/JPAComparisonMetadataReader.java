@@ -22,24 +22,5 @@ public class JPAComparisonMetadataReader implements
 		
 				
 		descriptor.setIdProp(BeanUtils.getIdProp(c));
-		//for(String prop : descriptor.getSetProperties()){
-		//	try {
-		//		Method m = c.getMethod(BeanUtils.propertyToGetter(prop));
-		//		Class returnType = m.getReturnType();
-		//		if(returnType.isAnnotationPresent(Entity.class)){
-		//			descriptor.getPropertyDescriptor(prop).setDeepComparison(true);
-		//		}else if(Collection.class.isAssignableFrom(returnType)){
-		//			configureCollectionComparison(descriptor, prop, m);
-		//		}
-		//		System.out.println("");
-		//		if(BeanUtils.isAnnotationPresentInProperty(prop, c, Transient.class)){
-		//			descriptor.removePropertyDescriptor(prop);
-		//		}
-		//		
-		//	} catch (Exception e) {
-		//		throw new RuntimeException("Problemas ao recuperar o metodo", e);
-		//	}
-		//}
-		//System.out.println();
 	}
 }

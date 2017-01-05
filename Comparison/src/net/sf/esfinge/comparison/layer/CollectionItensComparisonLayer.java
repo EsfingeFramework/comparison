@@ -93,7 +93,6 @@ public class CollectionItensComparisonLayer extends ComparisonLayer {
 							}
 
 						} catch (Exception e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 						break IdSearch;

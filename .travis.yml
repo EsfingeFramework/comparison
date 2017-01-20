@@ -1,6 +1,6 @@
 language: java
 sudo: required
-before_script: cd Comparison
+before_install: cd Comparison
 jdk:
   - oraclejdk8
 install:

@@ -1,5 +1,6 @@
 package net.sf.esfinge.comparison.layer;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import net.sf.esfinge.comparison.CompareException;
@@ -13,7 +14,7 @@ public abstract class ComparisonLayer {
 	private ComparisonComponent component;
 	
 	public abstract boolean compare(Object oldValue, Object newValue, 
-			List<Difference> difs, PropertyDescriptor descProp) throws CompareException ;
+			List<Difference> difs, PropertyDescriptor descProp) throws CompareException, IllegalAccessException, InvocationTargetException, NoSuchMethodException, Exception ;
 	
 	public ComparisonComponent getComponent() {
 		return component;

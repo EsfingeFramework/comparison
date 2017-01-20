@@ -1,7 +1,10 @@
 package net.sf.esfinge.comparison.layer;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.List;
+
+import org.apache.commons.beanutils.PropertyUtils;
 
 import net.sf.esfinge.comparison.CompareException;
 import net.sf.esfinge.comparison.ComparisonDescriptor;
@@ -11,6 +14,7 @@ import net.sf.esfinge.comparison.difference.Difference;
 import net.sf.esfinge.comparison.difference.ListChanceDifference;
 import net.sf.esfinge.comparison.difference.ListChange;
 import net.sf.esfinge.comparison.utils.BeanUtils;
+import net.sf.esfinge.metadata.AnnotationReader;
 
 
 public class CollectionItensComparisonLayer extends ComparisonLayer {
@@ -18,7 +22,7 @@ public class CollectionItensComparisonLayer extends ComparisonLayer {
 	@Override
 	public boolean compare(Object oldValue, Object newValue,
 			List<Difference> difs, PropertyDescriptor descProp)
-			throws CompareException {
+			throws Exception {
 		
 		if(descProp.isCollectionComparison()){
 			Collection oldCol = (Collection) oldValue;
@@ -36,15 +40,18 @@ public class CollectionItensComparisonLayer extends ComparisonLayer {
 	}
 
 	private void compareComposedCollections(List<Difference> difs,
-			PropertyDescriptor descProp, Collection oldCol, Collection newCol) throws CompareException {
+			PropertyDescriptor descProp, Collection oldCol, Collection newCol) throws Exception {
+		
+		
 		ComparisonDescriptor cd = Repository.getInstance().getMetadata(descProp.getAssociateType());
+		//ComparisonDescriptor cd = new AnnotationReader().readingAnnotationsTo(descProp.getAssociateType(), ComparisonDescriptor.class);
 		searchForComplexAdditions(difs, descProp, oldCol, newCol, cd);
 		searchForComplexRemovals(difs, descProp, oldCol, newCol, cd);
 	}
 
 	private void searchForComplexRemovals(List<Difference> difs,
 			PropertyDescriptor descProp, Collection oldCol, Collection newCol,
-			ComparisonDescriptor cd) {
+			ComparisonDescriptor cd) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
 		for(Object oldItem : oldCol){
 			Object id = BeanUtils.getProperty(oldItem, cd.getIdProp());
 			boolean found = false;
@@ -64,9 +71,10 @@ public class CollectionItensComparisonLayer extends ComparisonLayer {
 
 	private void searchForComplexAdditions(List<Difference> difs,
 			PropertyDescriptor descProp, Collection oldCol, Collection newCol,
-			ComparisonDescriptor cd) throws CompareException {
+			ComparisonDescriptor cd) throws CompareException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
 		for(Object newItem : newCol){
 			Object id = BeanUtils.getProperty(newItem, cd.getIdProp());
+
 			if(id == null){
 				difs.add(new ListChanceDifference(descProp.getName(), 
 						newItem, ListChange.ADDED));
@@ -85,8 +93,8 @@ public class CollectionItensComparisonLayer extends ComparisonLayer {
 							}
 
 						} catch (Exception e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
+				
 						}
 						break IdSearch;
 					}

@@ -32,7 +32,6 @@ public class DeepComparisonLayer extends ComparisonLayer {
 				difs.add(d);
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

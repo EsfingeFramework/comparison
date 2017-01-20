@@ -10,12 +10,10 @@ import javax.persistence.Entity;
 import net.sf.esfinge.classmock.ClassMock;
 import net.sf.esfinge.classmock.Location;
 import net.sf.esfinge.comparison.ComparisonComponent;
-import net.sf.esfinge.comparison.ComparisonComponentNew;
 import net.sf.esfinge.comparison.annotation.DeepComparison;
 import net.sf.esfinge.comparison.annotation.IgnoreInComparison;
 import net.sf.esfinge.comparison.difference.Difference;
 import net.sf.esfinge.comparison.difference.PropertyDifference;
-import net.sf.esfinge.comparison.reader.AnnotationComparisonMetadataReader;
 import net.sf.esfinge.comparison.reader.ChainComparisonMetatataReader;
 import net.sf.esfinge.comparison.reader.JPAComparisonMetadataReader;
 import net.sf.esfinge.comparison.reader.MetadataReaderProvider;
@@ -46,7 +44,6 @@ public class ComparisonTest {
 	public static void setReaderProvider(){
 		ChainComparisonMetatataReader chainReader = 
 			new ChainComparisonMetatataReader(
-					new AnnotationComparisonMetadataReader(),
 					new JPAComparisonMetadataReader()
 			);
 		MetadataReaderProvider.set(chainReader);
@@ -64,7 +61,7 @@ public class ComparisonTest {
 		set(beanB, "prop1", "value");
 		set(beanB, "prop2", 23);
 		
-		ComparisonComponentNew cc = new ComparisonComponentNew();
+		ComparisonComponent cc = new ComparisonComponent();
 		List<Difference> l = cc.compare(beanA, beanB);
 		
 		assertEquals(1, l.size());
@@ -86,7 +83,7 @@ public class ComparisonTest {
 		set(beanB, "prop1", "value");
 		set(beanB, "prop2", 23);
 		
-		ComparisonComponentNew cc = new ComparisonComponentNew();
+		ComparisonComponent cc = new ComparisonComponent();
 		List<Difference> l = cc.compare(beanA, beanB);
 		
 		assertEquals(0, l.size());
@@ -118,7 +115,7 @@ public class ComparisonTest {
 		
 		set(beanB, "prop3", internalBeanB);
 		
-		ComparisonComponentNew cc = new ComparisonComponentNew();
+		ComparisonComponent cc = new ComparisonComponent();
 		List<Difference> l = cc.compare(beanA, beanB);
 		
 		assertEquals(1, l.size());
@@ -154,7 +151,7 @@ public class ComparisonTest {
 		
 		set(beanB, "prop3", internalBeanB);
 		
-		ComparisonComponentNew cc = new ComparisonComponentNew();
+		ComparisonComponent cc = new ComparisonComponent();
 		List<Difference> l = cc.compare(beanA, beanB);
 		
 		assertEquals(1, l.size());
@@ -194,7 +191,7 @@ public class ComparisonTest {
 		
 		set(beanB, "prop3", internalBeanB);
 		
-		ComparisonComponentNew cc = new ComparisonComponentNew();
+		ComparisonComponent cc = new ComparisonComponent();
 		List<Difference> l = cc.compare(beanA, beanB);
 		
 		assertEquals(2, l.size());
@@ -211,6 +208,7 @@ public class ComparisonTest {
 		mockInternalBean.addAnnotation(Entity.class);
 		intClazz = mockInternalBean.createClass();
 		mockBean.addProperty("prop3", intClazz);
+		mockBean.addAnnotation("prop3", DeepComparison.class,Location.GETTER);
 		clazz = mockBean.createClass();
 		
 		Object beanA = clazz.newInstance();
@@ -233,8 +231,9 @@ public class ComparisonTest {
 		
 		set(beanB, "prop3", internalBeanB);
 		
-		ComparisonComponentNew cc = new ComparisonComponentNew();
+		ComparisonComponent cc = new ComparisonComponent();
 		List<Difference> l = cc.compare(beanA, beanB);
+		
 		
 		assertEquals(1, l.size());
 		assertEquals("prop3.intProp1", l.get(0).getPath());

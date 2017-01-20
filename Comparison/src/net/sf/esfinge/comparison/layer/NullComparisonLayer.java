@@ -13,6 +13,7 @@ public class NullComparisonLayer extends ComparisonLayer {
 	public boolean compare(Object oldValue, Object newValue,
 			List<Difference> difs, PropertyDescriptor descProp)
 			throws CompareException {
+		
 		if ((oldValue == null && newValue != null)
 				|| (oldValue != null && newValue == null)) {
 			Difference dif = new PropertyDifference(descProp.getName(), oldValue,newValue);

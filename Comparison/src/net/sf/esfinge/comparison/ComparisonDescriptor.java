@@ -14,9 +14,10 @@ import net.sf.esfinge.metadata.container.ContainerTarget;
 public class ComparisonDescriptor {
 	
 	
+	
+	//private Map<String,PropertyDescriptor> properties;
 	@ElementPropertyWithoutAnnotation(IgnoreInComparison.class)
-	private Map<String,PropertyDescriptor> properties;
-	//private Map<String,PropertyDescriptor> properties = new HashMap<String, PropertyDescriptor>();
+	private Map<String,PropertyDescriptor> properties = new HashMap<String, PropertyDescriptor>();
 	
 	@ElementName
 	private String idProp;
@@ -59,12 +60,7 @@ public class ComparisonDescriptor {
 
 	public void setProperties(Map<String, PropertyDescriptor> propertiesNew) {
 		this.properties = propertiesNew;
-	}
-	@Override
-	public String toString() {
-		return "ComparisonDescriptor [properties=" + properties + ", idProp=" + idProp + "]";
-	}
-	
+	}	
 	
 	
 	

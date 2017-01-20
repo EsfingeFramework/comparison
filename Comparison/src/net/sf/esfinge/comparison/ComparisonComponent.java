@@ -1,9 +1,13 @@
 package net.sf.esfinge.comparison;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+
+import org.apache.commons.beanutils.PropertyUtils;
 
 import net.sf.esfinge.comparison.difference.Difference;
 import net.sf.esfinge.comparison.layer.CollectionItensComparisonLayer;
@@ -52,14 +56,10 @@ public class ComparisonComponent {
 		AnnotationReader leitura = new AnnotationReader();
 		
 		ComparisonDescriptor descr = leitura.readingAnnotationsTo(oldObj.getClass(),ComparisonDescriptor.class);
-
-		//ComparisonDescriptor descr = Repository.getInstance().
-		//	getMetadata(newObj.getClass());
-
+				
 		compareProperties(oldObj, newObj, difs, descr);
 		
 		removeCompared(oldObj, newObj);
-		System.err.println(difs.toString());
 		return difs;
 	}
 
@@ -68,27 +68,28 @@ public class ComparisonComponent {
 			throws CompareException {
 		for (String prop : descr.getSetProperties()) {
 			try {
-				Object oldValue = BeanUtils.getProperty(oldObj, prop);
-				Object newValue = BeanUtils.getProperty(newObj, prop);
+				Object oldValue = PropertyUtils.getSimpleProperty(oldObj, prop);
+				Object newValue = PropertyUtils.getSimpleProperty(newObj, prop);
 				
 				//Modifico Aqui
-				PropertyDescriptor descProp = descr.getPropertyDescriptor(prop);
+				PropertyDescriptor descriptor = descr.getPropertyDescriptor(prop);
 				
-				
-				compareUsingLayers(difs, oldValue, newValue, descProp);
+				compareUsingLayers(difs, oldValue, newValue, descriptor);
 			} catch (Exception e) {
 				throw new CompareException("Error retrieving property", e);
+				//e.printStackTrace();
 			}
 		}
 	}
 
 	private void compareUsingLayers(List<Difference> difs, Object oldValue,
 			Object newValue, PropertyDescriptor descProp)
-			throws CompareException {
+			throws Exception {
 		boolean compared = false;
 		for(int i=0; i<layers.size() && !compared; i++){
 			ComparisonLayer layer = layers.get(i);
 			compared = layer.compare(oldValue, newValue, difs, descProp);
+			
 		}
 	}
 	

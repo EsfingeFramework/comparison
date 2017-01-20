@@ -1,8 +1,8 @@
 package net.sf.esfinge.comparison.reader;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.Collection;
 
 import javax.persistence.Entity;
@@ -10,6 +10,7 @@ import javax.persistence.Transient;
 
 import net.sf.esfinge.comparison.ComparisonDescriptor;
 import net.sf.esfinge.comparison.utils.BeanUtils;
+import net.sf.esfinge.metadata.AnnotationReader;
 
 
 public class JPAComparisonMetadataReader implements
@@ -18,33 +19,7 @@ public class JPAComparisonMetadataReader implements
 
 	@Override
 	public void populateContainer(Class c, ComparisonDescriptor descriptor) {
+	
 		descriptor.setIdProp(BeanUtils.getIdProp(c));
-		for(String prop : descriptor.getSetProperties()){
-			try {
-				Method m = c.getMethod(BeanUtils.propertyToGetter(prop));
-				Class returnType = m.getReturnType();
-				if(returnType.isAnnotationPresent(Entity.class)){
-					descriptor.getPropertyDescriptor(prop).setDeepComparison(true);
-				}else if(Collection.class.isAssignableFrom(returnType)){
-					configureCollectionComparison(descriptor, prop, m);
-				}
-				if(BeanUtils.isAnnotationPresentInProperty(prop, c, Transient.class)){
-					descriptor.removePropertyDescriptor(prop);
-				}
-				
-			} catch (Exception e) {
-				throw new RuntimeException("Problemas ao recuperar o método", e);
-			}
-		}
-	}
-
-	private void configureCollectionComparison(ComparisonDescriptor descriptor,
-			String prop, Method m) {
-		descriptor.getPropertyDescriptor(prop).setCollectionComparison(true);
-		Class genericParam = (Class)((ParameterizedType) m.getGenericReturnType()).getActualTypeArguments()[0];
-		if(genericParam.isAnnotationPresent(Entity.class)){
-			descriptor.getPropertyDescriptor(prop).setDeepComparison(true);
-			descriptor.getPropertyDescriptor(prop).setAssociateType(genericParam);
-		}
 	}
 }

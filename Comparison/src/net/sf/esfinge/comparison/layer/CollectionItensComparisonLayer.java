@@ -76,10 +76,17 @@ public class CollectionItensComparisonLayer extends ComparisonLayer {
 				for(Object oldItem : oldCol){
 					if(id.equals(BeanUtils.getProperty(oldItem, cd.getIdProp()))){
 						found = true;
-						List<Difference> l = getComponent().compare(oldItem, newItem);
-						for(Difference d : l){
-							d.setPath(descProp.getName()+"[id="+id+"]."+ d.getPath());
-							difs.add(d);
+						List<Difference> l;
+						try {
+							l = getComponent().compare(oldItem, newItem);
+							for(Difference d : l){
+								d.setPath(descProp.getName()+"[id="+id+"]."+ d.getPath());
+								difs.add(d);
+							}
+
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
 						}
 						break IdSearch;
 					}

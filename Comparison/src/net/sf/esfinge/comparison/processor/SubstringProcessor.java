@@ -32,4 +32,10 @@ public class SubstringProcessor implements ComparisonProcessor {
 		}
 		return null;
 	}
+	@Override
+	public String toString() {
+		return "SubstringProcessor [begin=" + begin + ", end=" + end + "]";
+	}
+	
+	
 }

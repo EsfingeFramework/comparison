@@ -12,6 +12,7 @@ import net.sf.esfinge.comparison.layer.DeepComparisonLayer;
 import net.sf.esfinge.comparison.layer.NullComparisonLayer;
 import net.sf.esfinge.comparison.layer.ValueComparisonLayer;
 import net.sf.esfinge.comparison.utils.BeanUtils;
+import net.sf.esfinge.metadata.AnnotationReader;
 
 
 public class ComparisonComponent {
@@ -36,7 +37,7 @@ public class ComparisonComponent {
 	}
 
 	public List<Difference> compare(Object oldObj, Object newObj)
-			throws CompareException {
+			throws Exception {
 
 		addCompared(oldObj, newObj);
 		
@@ -47,19 +48,25 @@ public class ComparisonComponent {
 		
 		
 		//Modifico Aqui
-		ComparisonDescriptor descr = Repository.getInstance().
-			getMetadata(newObj.getClass());
+		
+		AnnotationReader leitura = new AnnotationReader();
+		
+		ComparisonDescriptor descr = leitura.readingAnnotationsTo(oldObj.getClass(),ComparisonDescriptor.class);
+
+		//ComparisonDescriptor descr = Repository.getInstance().
+		//	getMetadata(newObj.getClass());
 
 		compareProperties(oldObj, newObj, difs, descr);
 		
 		removeCompared(oldObj, newObj);
+		System.err.println(difs.toString());
 		return difs;
 	}
 
 	private void compareProperties(Object oldObj, Object newObj,
 			List<Difference> difs, ComparisonDescriptor descr)
 			throws CompareException {
-		for (String prop : descr.getProperties()) {
+		for (String prop : descr.getSetProperties()) {
 			try {
 				Object oldValue = BeanUtils.getProperty(oldObj, prop);
 				Object newValue = BeanUtils.getProperty(newObj, prop);

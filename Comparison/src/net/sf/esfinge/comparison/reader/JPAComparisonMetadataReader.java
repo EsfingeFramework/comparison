@@ -19,7 +19,7 @@ public class JPAComparisonMetadataReader implements
 	@Override
 	public void populateContainer(Class c, ComparisonDescriptor descriptor) {
 		descriptor.setIdProp(BeanUtils.getIdProp(c));
-		for(String prop : descriptor.getProperties()){
+		for(String prop : descriptor.getSetProperties()){
 			try {
 				Method m = c.getMethod(BeanUtils.propertyToGetter(prop));
 				Class returnType = m.getReturnType();

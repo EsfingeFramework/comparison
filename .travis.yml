@@ -1,8 +1,8 @@
 language: java
 sudo: required
+before_script: cd Comparsion
 jdk:
   - oraclejdk8
 
 install:
-  -cd Comparsion
   - mvn clean test

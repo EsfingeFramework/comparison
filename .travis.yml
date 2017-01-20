@@ -4,4 +4,4 @@ before_install: cd Comparison
 jdk:
   - oraclejdk8
 install:
-- mvn clean test
+  - mvn clean test

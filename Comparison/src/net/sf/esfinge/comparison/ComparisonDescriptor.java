@@ -37,7 +37,6 @@ public class ComparisonDescriptor {
 	
 	
 	
-	///OLDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
 	public void addPropertyDescriptor(PropertyDescriptor descProp){
 		properties.put(descProp.getName(), descProp);
 	}

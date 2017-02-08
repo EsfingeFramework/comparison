@@ -19,13 +19,18 @@ public class DayToleranceProcessor implements ComparisonProcessor {
 	
 	@Override
 	public Difference compare(String prop, Object oldValue, Object newValue) {
-		Calendar newDate = calendarConversor(dateFormated.format(newValue));
-		Calendar oldDate = calendarConversor(dateFormated.format(oldValue));
+		
+		
+		Calendar oldD = (Calendar) oldValue;
+		Calendar newD = (Calendar) newValue;
+		
+		Calendar newDate = calendarConversor(dateFormated.format(oldD.getTime()));
+		Calendar oldDate = calendarConversor(dateFormated.format(newD.getTime()));
 		if (!anoIgual(newDate,oldDate)){
-			return new PropertyDifference(prop, dateFormated.format(newValue), dateFormated.format(oldValue));
+			return new PropertyDifference(prop, dateFormated.format(oldD.getTime()), dateFormated.format(newD.getTime()));
 		}
 		if (getDif(newDate,oldDate) > tolerance) {
-			return new PropertyDifference(prop, dateFormated.format(newValue), dateFormated.format(oldValue));
+			return new PropertyDifference(prop, dateFormated.format(oldD.getTime()), dateFormated.format(newD.getTime()));
 		}
 		return null;
 	}

@@ -47,7 +47,6 @@ public class PropertyDescriptor {
 		this.processor = processor;
 	}
 	
-	//other getters and setters omitted
 	
 	public String getName() {
 		return name;

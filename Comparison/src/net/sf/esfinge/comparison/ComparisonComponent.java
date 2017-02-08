@@ -51,7 +51,6 @@ public class ComparisonComponent {
 			throw new CompareException("Not compatible types");
 		
 		
-		//Modifico Aqui
 		
 		AnnotationReader leitura = new AnnotationReader();
 		

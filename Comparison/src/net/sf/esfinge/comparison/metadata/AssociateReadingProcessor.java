@@ -15,16 +15,16 @@ import net.sf.esfinge.metadata.AnnotationReadingException;
 import net.sf.esfinge.metadata.AnnotationValidationException;
 import net.sf.esfinge.metadata.container.AnnotationReadingProcessor;
 import net.sf.esfinge.metadata.container.ContainerTarget;
-import net.sf.esfinge.metadata.locate.AnnotationLocator;
+
 
 public class AssociateReadingProcessor implements AnnotationReadingProcessor {
 
 	Associate annot;
 	Field field;
 	@Override
-	public void initAnnotation(Annotation an, Field field) throws AnnotationValidationException {
+	public void initAnnotation(Annotation an, AnnotatedElement ae) throws AnnotationValidationException {
 		
-		this.field = field;
+		this.field = (Field)ae;
 		annot = (Associate) an;
 
 	}

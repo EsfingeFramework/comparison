@@ -22,7 +22,7 @@ public class TestDate {
 		date1 = Calendar.getInstance();
 		date2 = Calendar.getInstance();
 		
-		date2.set(2017, 01, 11);
+		date2.set(2023, 01, 14);
 
 		compDate1 = new DayCompTolerance(date1);
 		compDate2 = new DayCompTolerance(date2);

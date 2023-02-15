@@ -7,11 +7,16 @@ import java.lang.annotation.Target;
 
 import net.sf.esfinge.comparison.reader.delegate.DelegateReader;
 import net.sf.esfinge.comparison.reader.delegate.ToleranceReader;
+import net.sf.esfinge.metadata.locate.conventions.annotations.MethodReturnTypeConvention;
+import net.sf.esfinge.metadata.locate.conventions.annotations.attributes.FixedDoubleValue;
+import net.sf.esfinge.metadata.locate.conventions.annotations.attributes.FixedIntegerValue;
 
 
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @DelegateReader(ToleranceReader.class)
+@MethodReturnTypeConvention(returnType = double.class,canBeSubtype = false)
 public @interface Tolerance {
+	@FixedDoubleValue(0.01)
 	double value();
 }
